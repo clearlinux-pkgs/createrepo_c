@@ -141,7 +141,6 @@ libcreaterepo_c.so.0:cr_rm
 libcreaterepo_c.so.0:cr_set_autochunk
 libcreaterepo_c.so.0:cr_set_cleanup_handler
 libcreaterepo_c.so.0:cr_set_dict
-libcreaterepo_c.so.0:cr_set_global_exit_value
 libcreaterepo_c.so.0:cr_setup_logging
 libcreaterepo_c.so.0:cr_slist_free_full
 libcreaterepo_c.so.0:cr_sopen

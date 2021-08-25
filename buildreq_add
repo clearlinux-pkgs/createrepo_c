@@ -1,13 +1,10 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-pkgconfig(gthread-2.0)
-pkgconfig(sqlite3)
-pkgconfig(liblzma)
-file-dev
-rpm-dev
-popt-dev
 bzip2-dev
-zlib-dev
-libxml2-dev
 curl-dev
+file-dev
+libxml2-dev
 openssl-dev
+popt-dev
+rpm-dev
+zlib-dev
