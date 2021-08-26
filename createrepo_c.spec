@@ -4,7 +4,7 @@
 #
 Name     : createrepo_c
 Version  : 0.17.4
-Release  : 63
+Release  : 64
 URL      : https://github.com/rpm-software-management/createrepo_c/archive/0.17.4/createrepo_c-0.17.4.tar.gz
 Source0  : https://github.com/rpm-software-management/createrepo_c/archive/0.17.4/createrepo_c-0.17.4.tar.gz
 Summary  : Creates a common metadata repository
@@ -37,6 +37,7 @@ BuildRequires : python3
 BuildRequires : python3-dev
 BuildRequires : rpm-dev
 BuildRequires : zlib-dev
+Patch1: 0001-Simplify-checking-for-allowed-modulemd-metadata-file.patch
 
 %description
 C implementation of Createrepo.
@@ -122,13 +123,14 @@ python3 components for the createrepo_c package.
 %prep
 %setup -q -n createrepo_c-0.17.4
 cd %{_builddir}/createrepo_c-0.17.4
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1629916677
+export SOURCE_DATE_EPOCH=1630014658
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -144,7 +146,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1629916677
+export SOURCE_DATE_EPOCH=1630014658
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/createrepo_c
 cp %{_builddir}/createrepo_c-0.17.4/COPYING %{buildroot}/usr/share/package-licenses/createrepo_c/4cc77b90af91e615a64ae04893fdffa7939db84c

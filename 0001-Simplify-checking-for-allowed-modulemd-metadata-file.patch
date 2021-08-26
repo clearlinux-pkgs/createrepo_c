@@ -1,0 +1,56 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ale=C5=A1=20Mat=C4=9Bj?= <amatej@redhat.com>
+Date: Wed, 14 Jul 2021 08:33:44 +0200
+Subject: [PATCH] Simplify checking for allowed modulemd metadata files
+
+Previous approach was too complicated, slow and ultimately unnecessary.
+If an invalid file passes as allowed it is caught later when loading the
+module metadata. There is no need to slow down checking each
+path/package with compression validation.
+
+For: https://github.com/rpm-software-management/createrepo_c/issues/275
+---
+ src/createrepo_c.c | 30 ++++++------------------------
+ 1 file changed, 6 insertions(+), 24 deletions(-)
+
+diff --git a/src/createrepo_c.c b/src/createrepo_c.c
+index 5d3f2b4..05d7f68 100644
+--- a/src/createrepo_c.c
++++ b/src/createrepo_c.c
+@@ -88,30 +88,12 @@ allowed_file(const gchar *filename, GSList *exclude_masks)
+ static gboolean
+ allowed_modulemd_module_metadata_file(const gchar *filename)
+ {
+-    GError *tmp_err = NULL;
+-    cr_CompressionType com_type = cr_detect_compression(filename, &tmp_err);
+-    if (tmp_err) {
+-        g_critical("Failed to detect compression for file %s: %s", filename, tmp_err->message);
+-        g_clear_error(&tmp_err);
+-        exit(EXIT_FAILURE);
+-    }
+-    const char *compression_suffix = cr_compression_suffix(com_type);
+-    const char *allowed_arr[] = {".modulemd.yaml" , ".modulemd-defaults.yaml", "modules.yaml", '\0'};
+-
+-    for (const char **allowed = allowed_arr; allowed && *allowed; allowed++) {
+-        if (compression_suffix) {
+-            char allowed_with_suffix[40];
+-            snprintf(allowed_with_suffix, sizeof allowed_with_suffix, "%s%s", *allowed, compression_suffix);
+-            if (g_strrstr(filename, allowed_with_suffix)) {
+-                return TRUE;
+-            }
+-        } else {
+-            if (g_strrstr(filename, *allowed)) {
+-                return TRUE;
+-            }
+-        }
+-
+-    }
++    if (g_strrstr(filename, "modules.yaml"))
++        return TRUE;
++    if (g_strrstr(filename, ".modulemd.yaml"))
++        return TRUE;
++    if (g_strrstr(filename, ".modulemd-defaults.yaml"))
++        return TRUE;
+ 
+     return FALSE;
+ }
