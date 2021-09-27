@@ -1,3 +1,4 @@
+-DCMAKE_CTEST_ARGUMENTS="--verbose --output-on-failure"
 -DLIB_INSTALL_DIR=/usr/lib64
 -DWITH_ZCHUNK=OFF
 -DENABLE_DRPM=OFF

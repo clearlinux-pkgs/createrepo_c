@@ -88,6 +88,7 @@ libcreaterepo_c.so.0:cr_normalize_dir_path
 libcreaterepo_c.so.0:cr_null_log_fn
 libcreaterepo_c.so.0:cr_old_metadata_retention
 libcreaterepo_c.so.0:cr_package_copy
+libcreaterepo_c.so.0:cr_package_copy_into
 libcreaterepo_c.so.0:cr_package_file_new
 libcreaterepo_c.so.0:cr_package_free
 libcreaterepo_c.so.0:cr_package_from_header
@@ -211,6 +212,7 @@ libcreaterepo_c.so.0:cr_xml_from_rpm
 libcreaterepo_c.so.0:cr_xml_parse_filelists
 libcreaterepo_c.so.0:cr_xml_parse_filelists_internal
 libcreaterepo_c.so.0:cr_xml_parse_filelists_snippet
+libcreaterepo_c.so.0:cr_xml_parse_main_metadata_together
 libcreaterepo_c.so.0:cr_xml_parse_other
 libcreaterepo_c.so.0:cr_xml_parse_other_internal
 libcreaterepo_c.so.0:cr_xml_parse_other_snippet
@@ -233,8 +235,11 @@ libcreaterepo_c.so.0:cr_xmlfile_sopen
 libcreaterepo_c.so.0:cr_xmlfile_write_xml_footer
 libcreaterepo_c.so.0:cr_xmlfile_write_xml_header
 libcreaterepo_c.so.0:createrepo_c_error_quark
+libcreaterepo_c.so.0:filelists_parser_data_new
 libcreaterepo_c.so.0:koji_allowed
 libcreaterepo_c.so.0:koji_stuff_destroy
 libcreaterepo_c.so.0:koji_stuff_prepare
+libcreaterepo_c.so.0:other_parser_data_new
 libcreaterepo_c.so.0:pkgorigins_prepare
 libcreaterepo_c.so.0:prepare_split_media_baseurl
+libcreaterepo_c.so.0:primary_parser_data_new
