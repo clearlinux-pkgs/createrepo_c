@@ -70,8 +70,10 @@ libcreaterepo_c.so.0:cr_log_fn
 libcreaterepo_c.so.0:cr_metadata_free
 libcreaterepo_c.so.0:cr_metadata_hashtable
 libcreaterepo_c.so.0:cr_metadata_key
+libcreaterepo_c.so.0:cr_metadata_load_modulemd
 libcreaterepo_c.so.0:cr_metadata_load_xml
 libcreaterepo_c.so.0:cr_metadata_locate_and_load_xml
+libcreaterepo_c.so.0:cr_metadata_modulemd
 libcreaterepo_c.so.0:cr_metadata_new
 libcreaterepo_c.so.0:cr_metadata_set_dupaction
 libcreaterepo_c.so.0:cr_metadatalocation_free

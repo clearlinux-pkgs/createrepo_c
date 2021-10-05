@@ -2,4 +2,5 @@
 # not get picked up automatically. One name per line, no whitespace.
 gthread-2.0
 liblzma
+modulemd-2.0
 sqlite3

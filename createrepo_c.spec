@@ -4,7 +4,7 @@
 #
 Name     : createrepo_c
 Version  : 0.17.6
-Release  : 67
+Release  : 68
 URL      : https://github.com/rpm-software-management/createrepo_c/archive/0.17.6/createrepo_c-0.17.6.tar.gz
 Source0  : https://github.com/rpm-software-management/createrepo_c/archive/0.17.6/createrepo_c-0.17.6.tar.gz
 Summary  : Creates a common metadata repository
@@ -30,6 +30,7 @@ BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gthread-2.0)
 BuildRequires : pkgconfig(liblzma)
 BuildRequires : pkgconfig(libmagic)
+BuildRequires : pkgconfig(modulemd-2.0)
 BuildRequires : pkgconfig(rpm)
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : popt-dev
@@ -128,7 +129,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1632766746
+export SOURCE_DATE_EPOCH=1633467541
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -140,7 +141,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 -DLIB_INSTALL_DIR=/usr/lib64 \
 -DWITH_ZCHUNK=OFF \
 -DENABLE_DRPM=OFF \
--DWITH_LIBMODULEMD=OFF
+-DWITH_LIBMODULEMD=ON
 make  %{?_smp_mflags}
 popd
 
@@ -152,7 +153,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make -C clr-build test
 
 %install
-export SOURCE_DATE_EPOCH=1632766746
+export SOURCE_DATE_EPOCH=1633467541
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/createrepo_c
 cp %{_builddir}/createrepo_c-0.17.6/COPYING %{buildroot}/usr/share/package-licenses/createrepo_c/4cc77b90af91e615a64ae04893fdffa7939db84c

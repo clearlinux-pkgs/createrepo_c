@@ -4,8 +4,10 @@ libcrypto.so.1.1
 libcurl.so.4
 libgcc_s.so.1
 libglib-2.0.so.0
+libgobject-2.0.so.0
 liblzma.so.5
 libmagic.so.1
+libmodulemd.so.2
 libpython3.9.so.1.0
 librpm.so.9
 librpmio.so.9
