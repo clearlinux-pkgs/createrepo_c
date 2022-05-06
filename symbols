@@ -1,5 +1,9 @@
 libcreaterepo_c.so.0:cr_GSList_of_cr_Dependency_contains_forbidden_control_chars
 libcreaterepo_c.so.0:cr_Package_contains_forbidden_control_chars
+libcreaterepo_c.so.0:cr_PkgIterator_free
+libcreaterepo_c.so.0:cr_PkgIterator_is_finished
+libcreaterepo_c.so.0:cr_PkgIterator_new
+libcreaterepo_c.so.0:cr_PkgIterator_parse_next
 libcreaterepo_c.so.0:cr_append_pid_and_datetime
 libcreaterepo_c.so.0:cr_better_copy_file
 libcreaterepo_c.so.0:cr_binary_data_new
@@ -82,6 +86,7 @@ libcreaterepo_c.so.0:cr_modifyrepo
 libcreaterepo_c.so.0:cr_modifyrepo_parse_batchfile
 libcreaterepo_c.so.0:cr_modifyrepotask_free
 libcreaterepo_c.so.0:cr_modifyrepotask_new
+libcreaterepo_c.so.0:cr_move_recursive
 libcreaterepo_c.so.0:cr_nevr_free
 libcreaterepo_c.so.0:cr_nevra_free
 libcreaterepo_c.so.0:cr_new_metadata_hashtable
@@ -115,6 +120,7 @@ libcreaterepo_c.so.0:cr_remove_metadata_classic
 libcreaterepo_c.so.0:cr_repomd_add_content_tag
 libcreaterepo_c.so.0:cr_repomd_add_distro_tag
 libcreaterepo_c.so.0:cr_repomd_add_repo_tag
+libcreaterepo_c.so.0:cr_repomd_compare
 libcreaterepo_c.so.0:cr_repomd_copy
 libcreaterepo_c.so.0:cr_repomd_detach_record
 libcreaterepo_c.so.0:cr_repomd_free
@@ -214,7 +220,6 @@ libcreaterepo_c.so.0:cr_xml_from_rpm
 libcreaterepo_c.so.0:cr_xml_parse_filelists
 libcreaterepo_c.so.0:cr_xml_parse_filelists_internal
 libcreaterepo_c.so.0:cr_xml_parse_filelists_snippet
-libcreaterepo_c.so.0:cr_xml_parse_main_metadata_together
 libcreaterepo_c.so.0:cr_xml_parse_other
 libcreaterepo_c.so.0:cr_xml_parse_other_internal
 libcreaterepo_c.so.0:cr_xml_parse_other_snippet
@@ -245,3 +250,4 @@ libcreaterepo_c.so.0:other_parser_data_new
 libcreaterepo_c.so.0:pkgorigins_prepare
 libcreaterepo_c.so.0:prepare_split_media_baseurl
 libcreaterepo_c.so.0:primary_parser_data_new
+libcreaterepo_c.so.0:unescape_ampersand_from_values
