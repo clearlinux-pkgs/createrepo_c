@@ -1,1 +1,4 @@
-make -C clr-build test
+pushd clr-build
+make tests
+ctest --output-on-failure
+popd
