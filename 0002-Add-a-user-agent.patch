@@ -1,0 +1,39 @@
+From e6993bb68902c7276c4650c1c8d1cdded1a9ccef Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Tue, 6 Aug 2024 13:05:26 -0700
+Subject: [PATCH] Add a user agent
+
+Be friendlier to anti-bot systems by specifying a User Agent that can be
+filtered/allowed.
+---
+ src/misc.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/src/misc.c b/src/misc.c
+index 2dd544e99851..f6910fb6a1cd 100644
+--- a/src/misc.c
++++ b/src/misc.c
+@@ -789,6 +789,20 @@ cr_download(CURL *in_handle,
+         return CRE_CURL;
+     }
+ 
++    // Set a User Agent
++    rcode = curl_easy_setopt(handle, CURLOPT_USERAGENT, "createrepo_c/"
++                    xstr(CR_VERSION_MAJOR) "."
++                    xstr(CR_VERSION_MINOR) "."
++                    xstr(CR_VERSION_PATCH));
++    if (rcode != CURLE_OK) {
++        curl_easy_cleanup(handle);
++        g_set_error(err, ERR_DOMAIN, CRE_CURL,
++                    "curl_easy_setopt(CURLOPT_USERAGENT) failed: %s",
++                    curl_easy_strerror(rcode));
++        remove(dst);
++        return CRE_CURL;
++    }
++
+     // Download the file
+     rcode = curl_easy_perform(handle);
+     if (rcode != CURLE_OK) {
+-- 
+2.46.0
+
